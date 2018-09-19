@@ -42,4 +42,4 @@ The application has several features:
 
 This project was deployed to Github Pages.
 
-The Project can be viewed at: <https://issue-tracker-cian.herokuapp.com/>
+The Project can be viewed at: <https://cianhub.github.io/weather-finder/>
