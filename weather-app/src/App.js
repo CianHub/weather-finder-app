@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./main.css";
 import Title from "./components/title.jsx";
@@ -16,7 +16,21 @@ class App extends React.Component {
     country: undefined,
     humidity: undefined,
     description: undefined,
+    icon: undefined,
     error: undefined
+  };
+
+  getLink = img => {
+    if (img) {
+      let link = "http://openweathermap.org/img/w/";
+      let code = img;
+      let pic = link + code + ".png";
+      return pic;
+    }
+  };
+
+  updateValue = e => {
+    document.getElementById("weather").style.opacity = 0;
   };
 
   getWeather = async e => {
@@ -25,7 +39,6 @@ class App extends React.Component {
     await a result.
     2. Function turns off default browser behaviour so page will not refresh on submit.
     */
-
     const city = e.target.elements.city.value;
 
     const country = e.target.elements.country.value;
@@ -38,6 +51,8 @@ class App extends React.Component {
     const response = await api_call.json();
 
     if (city && country) {
+      document.getElementById("weather").style.opacity = 1;
+
       this.setState({
         // Updates the components state with data from the API
 
@@ -46,6 +61,7 @@ class App extends React.Component {
         country: response.sys.country,
         humidity: response.main.humidity,
         description: response.weather[0].description,
+        img: response.weather[0].icon,
         error: ""
       });
     } else {
@@ -63,19 +79,17 @@ class App extends React.Component {
       this will pass the API data after a search is done 
       */
 
-      <div className="container" id="lower">
-        <div className="row ">
-          <div className="col-sm">
+      <React.Fragment>
+        <div className="row justify-content-center text-center transp">
+          <div className="col-sm" id="title">
             <Title />
           </div>
         </div>
-        <div className="row">
-          <div className="col-sm">
-            <Form loadWeather={this.getWeather} />
-          </div>
+        <div className="row justify-content-center transp">
+          <Form loadWeather={this.getWeather} newSearch={this.updateValue} />
         </div>
-        <div className="row">
-          <div className="col-sm">
+        <div className="row justify-content-center transp " id="weather">
+          <div className="col-sm text-center">
             <Weather
               temperature={this.state.temperature}
               city={this.state.city}
@@ -83,10 +97,11 @@ class App extends React.Component {
               humidity={this.state.humidity}
               description={this.state.description}
               error={this.state.error}
+              img={this.getLink(this.state.img)}
             />
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

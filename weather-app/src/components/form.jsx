@@ -8,26 +8,30 @@ const Form = props => {
     2. Create a form with two inputs one for city and one for country
     */
 
-    <form onSubmit={props.loadWeather}>
+    <form id="app-form" className="text-center" onSubmit={props.loadWeather}>
       <div className="form-group">
-        <div className="form-group">
-          <input
-            className="form-control"
-            type="text"
-            name="city"
-            placeholder="City..."
-          />
-        </div>
-        <div className="form-group">
-          <input
-            className="form-control"
-            type="text"
-            name="country"
-            placeholder="Country..."
-          />
-        </div>
-        <button className="lead btn btn-outline-light">Find The Weather</button>
+        <input
+          className="form-control font-two"
+          type="text"
+          name="city"
+          placeholder="City..."
+          onKeyDown={props.newSearch}
+          required
+        />
       </div>
+      <div className="form-group">
+        <input
+          className="form-control font-two"
+          type="text"
+          name="country"
+          placeholder="Country..."
+          onKeyDown={props.newSearch}
+          required
+        />
+      </div>
+      <button className="font-two lead btn btn-outline-light">
+        Find The Weather
+      </button>
     </form>
   );
 };

@@ -1,9 +1,22 @@
 /* Coolors Exported Palette - coolors.co/80a1c1-eee3ab-d9cfc1-a77e58-ba3f1d */
 /* HSL */
 /* RGB */
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC");
 body {
   background-image: url("./img/bg.jpg");
-  color: white; }
+  color: white;
+  font-family: "Amatic SC", cursive; }
 
 #lower {
-  padding-top: 20%; }
+  padding-top: 2em; }
+
+#weather {
+  padding-top: 2em;
+  opacity: 0;
+  transition: all 800ms cubic-bezier(0.25, 0.25, 0.75, 0.75) 0s; }
+
+.font-two {
+  font-family: "Open Sans", sans-serif; }
+
+#break-arrow {
+  padding-bottom: 1em; }

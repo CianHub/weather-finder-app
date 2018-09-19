@@ -14,20 +14,40 @@ const Weather = props => {
   };
   return (
     // Returns the weather forecast from the users query, checks if props exist first
-
-    <div>
-      {props.country &&
-        props.city && (
-          <p>
-            Location: {props.city}, {props.country}
+    <React.Fragment>
+      <div id="break-arrow">
+        <img
+          alt="arrow"
+          src="https://png.icons8.com/material-sharp/50/ffffff/expand-arrow.png"
+        />
+      </div>
+      <div className="col-sm">
+        {props.country &&
+          props.city && (
+            <h2 className="font-two weather-class">
+              {props.city}, {props.country}
+            </h2>
+          )}
+        {props.description && (
+          <p className="font-two weather-class">
+            {firstLetterCap(props.description)}
           </p>
         )}
-      {props.temperature && <p>Temperature: {props.temperature}° </p>}
-      {props.humidity && <p>Humidity: {props.humidity}%</p>}
-      {props.description && (
-        <p>Conditions: {firstLetterCap(props.description)}</p>
-      )}
-    </div>
+        {props.img && <img alt="icon" src={props.img} />}
+        {props.humidity && (
+          <p className="font-two weather-class">{props.humidity}% humidity</p>
+        )}
+      </div>
+      <div className="col-sm">
+        {props.temperature &&
+          props.icon && (
+            <p className="font-two weather-class">
+              {props.temperature}
+              °C
+            </p>
+          )}
+      </div>
+    </React.Fragment>
   );
 };
 

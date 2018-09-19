@@ -1,12 +1,31 @@
 @import "../scss/palette.scss";
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC");
+
+$amatic: "Amatic SC", cursive;
+$open: "Open Sans", sans-serif;
 
 $bg: url("./img/bg.jpg");
 
 body {
   background-image: $bg;
   color: white;
+  font-family: $amatic;
 }
 
 #lower {
-  padding-top: 20%;
+  padding-top: 2em;
+}
+
+#weather {
+  padding-top: 2em;
+  opacity: 0;
+  transition: all 800ms cubic-bezier(0.25, 0.25, 0.75, 0.75) 0s;
+}
+
+.font-two {
+  font-family: $open;
+}
+
+#break-arrow {
+  padding-bottom: 1em;
 }

@@ -6,12 +6,18 @@ const Title = props => {
   return (
     // Creates a function component Titles renders the website header
 
-    <div className="row">
-      <div className="col-sm">
-        <h1 className="display-3">Should I Go Outside?</h1>
-        <p className="lead">Find the weather in your city</p>
-      </div>
-    </div>
+    <React.Fragment>
+      <h1 className="display-3 text-center">
+        <strong>Weather Finder</strong>
+      </h1>
+      <p className="lead font-two">
+        Find the weather in{" "}
+        <b>
+          <i>your </i>
+        </b>
+        city
+      </p>
+    </React.Fragment>
   );
 };
 
