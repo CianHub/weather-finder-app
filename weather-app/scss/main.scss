@@ -1,0 +1,12 @@
+@import "../scss/palette.scss";
+
+$bg: url("./img/bg.jpg");
+
+body {
+  background-image: $bg;
+  color: white;
+}
+
+#lower {
+  padding-top: 20%;
+}
