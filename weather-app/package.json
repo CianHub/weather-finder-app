@@ -1,4 +1,5 @@
 {
+  "homepage": "https://cianhub.github.io/weather-finder/",
   "name": "weather-app",
   "version": "0.1.0",
   "private": true,
@@ -19,6 +20,8 @@
     "react-scripts": "1.1.5"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build-css": "node-sass --include-path scss scss/main.scss src/main.css",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -26,6 +29,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "gh-pages": "^2.0.0",
     "node-sass": "^4.9.3",
     "nodemon": "^1.18.4"
   }
