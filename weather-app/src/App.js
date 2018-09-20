@@ -22,7 +22,7 @@ class App extends React.Component {
 
   getLink = img => {
     if (img) {
-      let link = "http://openweathermap.org/img/w/";
+      let link = "https://openweathermap.org/img/w/";
       let code = img;
       let pic = link + code + ".png";
       return pic;
