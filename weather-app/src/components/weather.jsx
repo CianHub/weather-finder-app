@@ -28,6 +28,12 @@ const Weather = props => {
               {props.city}, {props.country}
             </h2>
           )}
+        {props.temperature && (
+          <h3 className="display-4" className="font-two weather-class">
+            {props.temperature.toFixed(0)}
+            °C
+          </h3>
+        )}
         {props.description && (
           <p className="font-two weather-class">
             {firstLetterCap(props.description)}
@@ -37,15 +43,6 @@ const Weather = props => {
         {props.humidity && (
           <p className="font-two weather-class">{props.humidity}% humidity</p>
         )}
-      </div>
-      <div className="col-sm">
-        {props.temperature &&
-          props.icon && (
-            <p className="font-two weather-class">
-              {props.temperature}
-              °C
-            </p>
-          )}
       </div>
     </React.Fragment>
   );
